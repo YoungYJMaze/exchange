@@ -5,7 +5,7 @@
         "loglevel": "warning"
     },
     "inbound": {
-        "port": 12345,
+        "port": 443,
         "protocol": "vmess",
         "settings": {
             "clients": [
@@ -15,12 +15,6 @@
                     "alterId": 64
                 }
             ]
-        },
-        "streamSettings": {
-            "network": "kcp"
-        },
-        "detour": {
-            "to": "vmess-detour-615462"
         }
     },
     "outbound": {
@@ -29,17 +23,12 @@
     },
     "inboundDetour": [
         {
-            "protocol": "vmess",
-            "port": "10000-10010",
-            "tag": "vmess-detour-615462",
-            "settings": {},
-            "allocate": {
-                "strategy": "random",
-                "concurrency": 5,
-                "refresh": 5
-            },
-            "streamSettings": {
-                "network": "kcp"
+            "protocol": "shadowsocks",
+            "port": 444,
+            "settings": {
+                "method": "aes-128-cfb",
+                "password": "youngyj.xyz",
+                "level": 1
             }
         }
     ],
